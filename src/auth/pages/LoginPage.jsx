@@ -1,41 +1,62 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { useState } from "react";
-import { checkingCredentials } from "../../store/auth/authSlice";
 import { startLoginWithEmailPassword } from "../../store/auth/thunks";
-import { useNavigate } from "react-router-dom";
-import RegisterPage from "./RegisterPage";
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 export default function LoginPage() {
-	const { status, errorMessage } = useSelector((state) => state.auth);
 	const dispatch = useDispatch();
-	const navigate = useNavigate();
 
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
-	const onSubmit = (e) => {
-		e.preventDefault();
-		dispatch(startLoginWithEmailPassword({ email, password }));
-	};
+	const loginSchema = Yup.object().shape({
+		email: Yup.string()
+			.email('Invalid email')
+			.required('Email is required'),
+		password: Yup.string()
+			.min(6, "Password is too short - Should be 6 chars min.")
+			.required('Password is required'),
+	});
+
+	const formik = useFormik({
+		initialValues: {
+		  email: '',
+		  password:'',
+		},
+		validationSchema: loginSchema,
+		onSubmit: (data) => {
+			setEmail(data.email)
+			setPassword(data.password)
+		  	dispatch(startLoginWithEmailPassword({ email, password }));
+		  	formik.resetForm()
+		}
+	})
 
 	return (
 		<div>
-			<form onSubmit={onSubmit}>
+			<form onSubmit={formik.handleSubmit}>
 				<input
 					name="email"
 					type="email"
 					placeholder="correo@google.com"
-					defaultValue={email}
-					onChange={(e) => setEmail(e.target.value)}
+					defaultValue={formik.values.email}
+					onChange={formik.handleChange}
 				/>
+				{formik.touched.email && formik.errors.email && (
+					<span>{formik.errors.email}</span>
+				)}
 				<input
 					name="password"
 					type="password"
 					placeholder="Contraseña"
-					defaultValue={password}
-					onChange={(e) => setPassword(e.target.value)}
+					defaultValue={formik.values.password}
+					onChange={formik.handleChange}
 				/>
-				<button>LogIn</button>
+				{formik.touched.password && formik.errors.password && (
+					<span>{formik.errors.password}</span>
+				)}
+				<button type='submit'>Login</button>
 			</form>
 		</div>
 	);
