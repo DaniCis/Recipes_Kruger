@@ -7,10 +7,6 @@ import * as Yup from 'yup';
 export default function RegisterPage() {
 	const dispatch = useDispatch();
 
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [displayName, setDisplayName] = useState("");
-
 	const signupSchema = Yup.object().shape({
 		displayName: Yup.string()
 			.required('Name is required'),
@@ -30,9 +26,9 @@ export default function RegisterPage() {
 		},
 		validationSchema: signupSchema,
 		onSubmit: (data) => {
-			setEmail(data.email)
-			setPassword(data.password)
-			setDisplayName(data.displayName)
+			let email = data.email;
+			let password = data.password;
+			let displayName = data.displayName;
 			dispatch( startCreatingUserWithEmailPassword({ email, password, displayName }))
 		  	formik.resetForm()
 		}

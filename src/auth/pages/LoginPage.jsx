@@ -7,8 +7,8 @@ import * as Yup from 'yup';
 export default function LoginPage() {
 	const dispatch = useDispatch();
 
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	// const [email, setEmail] = useState("");
+	// const [password, setPassword] = useState("");
 
 	const loginSchema = Yup.object().shape({
 		email: Yup.string()
@@ -26,12 +26,13 @@ export default function LoginPage() {
 		},
 		validationSchema: loginSchema,
 		onSubmit: (data) => {
-			setEmail(data.email)
-			setPassword(data.password)
-		  	dispatch(startLoginWithEmailPassword({ email, password }));
+			let email = data.email
+			let password = data.password
+			dispatch(startLoginWithEmailPassword({email, password}));
 		  	formik.resetForm()
 		}
 	})
+
 
 	return (
 		<div>

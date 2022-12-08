@@ -15,7 +15,7 @@ const firebaseConfig = {
     storageBucket: "recipesks-faaa5.appspot.com",
     messagingSenderId: "298193489554",
     appId: "1:298193489554:web:51f570332f3f0712f8a04b"
-};
+  };
 
 // Initialize Firebase
 export const FirebaseApp = initializeApp(firebaseConfig);
