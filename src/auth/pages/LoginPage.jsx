@@ -1,14 +1,10 @@
 import { useDispatch} from "react-redux";
-import { useState } from "react";
 import { startLoginWithEmailPassword } from "../../store/auth/thunks";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 export default function LoginPage() {
 	const dispatch = useDispatch();
-
-	// const [email, setEmail] = useState("");
-	// const [password, setPassword] = useState("");
 
 	const loginSchema = Yup.object().shape({
 		email: Yup.string()
@@ -32,7 +28,6 @@ export default function LoginPage() {
 		  	formik.resetForm()
 		}
 	})
-
 
 	return (
 		<div>
