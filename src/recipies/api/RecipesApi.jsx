@@ -10,24 +10,26 @@ export const RecipiesApi = () => {
 	}, []);
 
 	const getRecipes = async () => {
-		await axios
-			.get(
-				`${process.env.REACT_APP_URL}&app_id=${process.env.REACT_APP_ID}&app_key=${process.env.REACT_APP_KEY}&ingr=5-6&random=true`
-			)
-			.then((response) => {
-				const temp = response.data.hits;
-				let recetas = [];
-				for (const receta in temp) recetas.push(temp[receta].recipe);
-				setRecipes(recetas);
-			})
-			.catch((error) => {
-				console.log(error);
-			});
+		const check = localStorage.getItem("recipesSave");
+		if (check) {
+			setRecipes(JSON.parse(check));
+		} else {
+			await axios
+				.get(
+					`${process.env.REACT_APP_URL}&app_id=${process.env.REACT_APP_ID}&app_key=${process.env.REACT_APP_KEY}&ingr=5-6&random=true`
+				)
+				.then((response) => {
+					const temp = response.data.hits;
+					let recetas = [];
+					for (const receta in temp) recetas.push(temp[receta].recipe);
+					localStorage.setItem('recipesSave', JSON.stringify(recetas));
+					setRecipes(recetas);
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		}
 	};
-
-
-
-	
 
 	return { recipes };
 };
@@ -48,21 +50,20 @@ export const getRecipesId = async (id) => {
 	return value;
 };
 
-
 export const searchRecipes = async (name) => {
 	let recetasSeacrh = [];
 	await axios
-	.get(
-		`https://api.edamam.com/api/recipes/v2?type=public&q=${name}&app_id=${process.env.REACT_APP_ID}&app_key=${process.env.REACT_APP_KEY}`
+		.get(
+			`https://api.edamam.com/api/recipes/v2?type=public&q=${name}&app_id=${process.env.REACT_APP_ID}&app_key=${process.env.REACT_APP_KEY}`
 		)
 		.then((response) => {
 			const temp = response.data.hits;
-		for (const receta in temp) recetasSeacrh.push(temp[receta].recipe);
-		console.log(recetasSeacrh)
-	})
-	.catch((error) => {
-		console.log(error);
-	});
+			for (const receta in temp) recetasSeacrh.push(temp[receta].recipe);
+			console.log(recetasSeacrh);
+		})
+		.catch((error) => {
+			console.log(error);
+		});
 
 	return recetasSeacrh;
-}
+};

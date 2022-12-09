@@ -1,22 +1,39 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { getRecipesId } from "../api/RecipesApi";
 
 export default function DetailsRecipies() {
 	const params = useParams();
 	const [infos, setInfos] = useState([]);
 
+	const navigate = useNavigate();
+
 	useEffect(() => {
 		const fetchInfo = async () => {
 			const info = await getRecipesId(params.id);
-			setInfos(info)
-			console.log(info)
+			setInfos(info);
 		};
 
 		fetchInfo();
-	}, []);
+	}, [params.id]);
 
-
+	const handleSave = () => {
+		let saveRecipeInfo = [];
+		if (localStorage.getItem("saveRecipes") === null) {
+			localStorage.setItem("saveRecipes", "[]");
+		} else {
+			saveRecipeInfo = JSON.parse(localStorage.getItem("saveRecipes"));
+			let mmapSearch = saveRecipeInfo.map((data)=> data.label)
+			console.log((mmapSearch).includes(infos.label))
+				if((mmapSearch).includes(infos.label)){
+					alert('Recipes exist')
+				} 
+				else {
+					saveRecipeInfo.push(infos);
+					localStorage.setItem("saveRecipes", JSON.stringify(saveRecipeInfo));
+				}
+		}
+	};
 
 	return (
 		<div>
@@ -30,10 +47,12 @@ export default function DetailsRecipies() {
 				<p>{infos.mealType}</p>
 				<p>{infos.calories}</p>
 				<ul>
-					{infos.ingredients?.map((recipe)=>
+					{infos.ingredients?.map((recipe) => (
 						<li key={recipe.text}>{recipe.text}</li>
-					)}
+					))}
 				</ul>
+
+				<button onClick={handleSave}>Agregar</button>
 			</div>
 		</div>
 	);
