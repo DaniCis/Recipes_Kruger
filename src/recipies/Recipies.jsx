@@ -1,46 +1,35 @@
-import axios from 'axios';
-import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { RecipiesApi } from "./api/RecipesApi";
 import { startLogout } from "../store/auth/thunks";
 
+
 export default function Recipies() {
+
 	const dispatch = useDispatch();
 	const { displayName } = useSelector((state) => state.auth);
-
-	const [recipes,setRecipes] = useState([])
-
-	useEffect( () => {
-        getRecipes()
-    },[])
-
-	const getRecipes = async() =>{
-		await axios.get(`${process.env.REACT_APP_URL}&app_id=${process.env.REACT_APP_ID}&app_key=${process.env.REACT_APP_KEY}&ingr=5-6&random=true`)
-		  .then((response) => {
-			const temp = response.data.hits
-			let recetas = []
-			for(const receta in temp)
-				recetas.push(temp[receta].recipe)
-			setRecipes(recetas)
-		}).catch(error => {
-		  console.log(error)
-		});
-	}
+	const {recipes} = RecipiesApi();
 
 	const onLogout = () => {
 		dispatch(startLogout());
 	};
 
-
 	return (
 		<div>
 			Recipes
+			<button onClick={onLogout}>Logout</button>
 			<div>{displayName}</div>
 			<div>
-				{recipes.map((receta,index) =>
-					<p key={index}>{receta.label}</p>
-				)}
+				{recipes.map((receta, index) => (
+					<>
+						<p key={index}>{receta.label}</p>
+						<p>{receta.uri.split('_',2)[1]}</p>
+						<Link to={`/details/${receta.uri.split('_',2)[1]}`}>
+							<button>Details</button>
+						</Link>
+					</>
+				))}
 			</div>
-			<button onClick={onLogout}>Logout</button>
 		</div>
 	);
 }
