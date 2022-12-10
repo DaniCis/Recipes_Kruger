@@ -13,7 +13,7 @@ const RecipeBook=() =>{
 
     useEffect(()=>{
         loadSavedRecipes()
-        if(localStorage.getItem('myRecipes') !=="[]")
+        if(localStorage.getItem('myRecipes') !==[])
             localStorage.setItem('myRecipes',JSON.stringify(myRecipes))
     },[myRecipes])
 
