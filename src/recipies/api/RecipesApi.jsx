@@ -3,14 +3,13 @@ import { useEffect, useState } from "react";
 
 export const RecipiesApi = () => {
 	const [recipes, setRecipes] = useState([]);
-	const [recipesSearch, setRecipesSearch] = useState([]);
 
 	useEffect(() => {
 		getRecipes();
 	}, []);
 
 	const getRecipes = async () => {
-		const check = localStorage.getItem("recipesSave");
+		const check = localStorage.getItem("apiRecipes");
 		if (check) {
 			setRecipes(JSON.parse(check));
 		} else {
@@ -22,7 +21,7 @@ export const RecipiesApi = () => {
 					const temp = response.data.hits;
 					let recetas = [];
 					for (const receta in temp) recetas.push(temp[receta].recipe);
-					localStorage.setItem('recipesSave', JSON.stringify(recetas));
+					localStorage.setItem('apiRecipes', JSON.stringify(recetas));
 					setRecipes(recetas);
 				})
 				.catch((error) => {
@@ -30,7 +29,6 @@ export const RecipiesApi = () => {
 				});
 		}
 	};
-
 	return { recipes };
 };
 
@@ -51,19 +49,19 @@ export const getRecipesId = async (id) => {
 };
 
 export const searchRecipes = async (name) => {
-	let recetasSeacrh = [];
+	let recetasSearch = [];
 	await axios
 		.get(
 			`https://api.edamam.com/api/recipes/v2?type=public&q=${name}&app_id=${process.env.REACT_APP_ID}&app_key=${process.env.REACT_APP_KEY}`
 		)
 		.then((response) => {
 			const temp = response.data.hits;
-			for (const receta in temp) recetasSeacrh.push(temp[receta].recipe);
-			console.log(recetasSeacrh);
+			for (const receta in temp) recetasSearch.push(temp[receta].recipe);
+			//console.log(recetasSeacrh);
 		})
 		.catch((error) => {
 			console.log(error);
 		});
 
-	return recetasSeacrh;
+	return recetasSearch;
 };

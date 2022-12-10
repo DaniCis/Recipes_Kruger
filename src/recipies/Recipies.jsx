@@ -13,7 +13,6 @@ export default function Recipies() {
 	const [infoSearch, setInfoSearch] = useState([]);
 	const [validationHome, setValidationHome] = useState(true);
 
-
 	useEffect(()=>{
 		if(recipeName === ''){
 			setValidationHome(true);
@@ -24,20 +23,20 @@ export default function Recipies() {
 		dispatch(startLogout());
 	}
 
-	
-
 	const handleSearch = async () => {
 		const searchInput = await searchRecipes(recipeName);
 		setValidationHome(false);
-		setInfoSearch(searchInput);
-		
+		setInfoSearch(searchInput);		
 	};
 
 	return (
 		<div>
-			Recipes
+			<h3>RECIPES</h3>
 			<button onClick={onLogout}>Logout</button>
 			<div>{displayName}</div>
+			<Link to={`/recipeBook`}>
+				<button>See My Recipes</button>
+			</Link>
 			<div>
 				<div>
 					<input
@@ -53,23 +52,23 @@ export default function Recipies() {
 					{validationHome ? (
 						<>
 							{recipes.map((receta, index) => (
-								<>
-									<p key={index}>{receta.label}</p>
-									<Link to={`/details/${receta.uri.split("_", 2)[1]}`}>
-										<button>Details</button>
-									</Link>
-								</>
-							))}
-						</>
-					) : (
-						<>
-							{infoSearch?.map((receta) => (
-								<>
+								<div key={index}>
 									<p>{receta.label}</p>
 									<Link to={`/details/${receta.uri.split("_", 2)[1]}`}>
 										<button>Details</button>
 									</Link>
-								</>
+								</div>
+							))}
+						</>
+					) : (
+						<>
+							{infoSearch?.map((receta,index) => (
+								<div key={index}>
+									<p>{receta.label}</p>
+									<Link to={`/details/${receta.uri.split("_", 2)[1]}`}>
+										<button>Details</button>
+									</Link>
+								</div>
 							))}
 						</>
 					)}
