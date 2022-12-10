@@ -22,9 +22,13 @@ export default function DetailsRecipies() {
 		const apiId = apiRecipes.map(recipe => recipe.uri.split("_",2)[1]).includes(id)
 		const savedRecipes = JSON.parse(localStorage.getItem('savedRecipes'))
 		let savedId = true
-		if(savedRecipes)
+		if(savedRecipes !== null )
 		 	savedId = savedRecipes.map(recipe => recipe.uri.split("_",2)[1]).includes(id)
-		if(apiId || savedId){
+		if(apiId && savedId){
+			setHasId(true)
+			return true
+		}
+		else if(apiId){
 			setHasId(true)
 			return true
 		}else{

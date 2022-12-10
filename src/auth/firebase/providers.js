@@ -33,5 +33,8 @@ export const loginWithEmailPassword = async({ email, password }) => {
 }
 
 export const logoutFirebase = async() => {
+    localStorage.removeItem('apiRecipes');
+    localStorage.removeItem('myRecipes');
+    localStorage.removeItem('savedRecipes');
     return await FirebaseAuth.signOut();
 }

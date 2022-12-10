@@ -2,7 +2,6 @@ import { useDispatch } from "react-redux";
 import { startLoginWithEmailPassword } from "../../store/auth/thunks";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-
 import "../styles/Login-Register-Layout.css";
 
 export default function LoginPage() {
@@ -30,12 +29,12 @@ export default function LoginPage() {
 	});
 
 	return (
-		<div class="login__registre">
-			<form onSubmit={formik.handleSubmit} action="#" class="sign-in-form">
-				<div class="login__title">
+		<div className="login__registre">
+			<form onSubmit={formik.handleSubmit} action="#" className="sign-in-form">
+				<div className="login__title">
 					<h1>Login</h1>
 				</div>
-				<div class="login__box">
+				<div className="login__box">
 					<input
 						name="email"
 						type="email"
@@ -52,11 +51,11 @@ export default function LoginPage() {
 						</span>
 					)}
 				</div>
-				<div class="login__box">
+				<div className="login__box">
 					<input
 						name="password"
 						type="password"
-						placeholder="Contraseña"
+						placeholder="Password"
 						defaultValue={formik.values.password}
 						onChange={formik.handleChange}
 						className = "w-72"

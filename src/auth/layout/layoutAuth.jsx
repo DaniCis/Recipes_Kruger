@@ -17,7 +17,6 @@ export default function LayoutAuth() {
 							? "overflow-hidden rounded-sm shadow-md shadow-gray-400/50 bg-gradient-to-r from-blue-400 to-cyan-400 text-sm w-52 font-medium tracking-wider uppercase  text-gray-50 py-1 px-2"
 							: "overflow-hidden rounded-sm shadow-md shadow-gray-400/50 bg-gradient-to-r from-rose-400 to-orange-300 text-sm w-60 font-medium tracking-wider uppercase text-gray-50 px-2"
 					}
-					
 					type="button"
 					onClick={() =>
 						setActiveForm(activeForm === "login" ? "register" : "login")
@@ -28,11 +27,11 @@ export default function LayoutAuth() {
 				</button>
 			</div>
 			<div className="login__content">
-				<div class="login__img">
+				<div className="login__img">
 					<img src={logo} alt="" />
 				</div>
 
-				<div class="login__forms">
+				<div className="login__forms">
 					{activeForm === "login" ? (
 						<>
 							<LoginPage />

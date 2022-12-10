@@ -35,9 +35,9 @@ export default function RegisterPage() {
 
 	return (
 		<div>
-			<form onSubmit={formik.handleSubmit} class="login__create">
-				<h1 class="login__title">Create Account</h1>
-				<div class="login__box">
+			<form onSubmit={formik.handleSubmit} className="login__create">
+				<h1 className="login__title">Create Account</h1>
+				<div className="login__box">
 					<input
 						name="displayName"
 						type="text"
@@ -52,7 +52,7 @@ export default function RegisterPage() {
 						</span>
 					)}
 				</div>
-				<div class="login__box">
+				<div className="login__box">
 					<input
 						name="email"
 						type="email"
@@ -67,11 +67,11 @@ export default function RegisterPage() {
 						</span>
 					)}
 				</div>
-				<div class="login__box">
+				<div className="login__box">
 					<input
 						name="password"
 						type="password"
-						placeholder="Contraseña"
+						placeholder="Password"
 						defaultValue={formik.values.password}
 						onChange={formik.handleChange}
 					/>
