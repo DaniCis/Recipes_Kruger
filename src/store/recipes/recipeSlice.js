@@ -9,7 +9,7 @@ export const recipeSlice = createSlice({
         },
         editRecipe:(state, {payload}) => {
             const index = state.findIndex(i => i.id === payload.id)
-            if(index)
+            if(!index)
                 state.splice(state.indexOf(index), 1, payload);
         },
         deleteRecipe:(state, {payload}) => {
