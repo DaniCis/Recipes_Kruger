@@ -27,7 +27,6 @@ export default function RegisterPage() {
 			let email = data.email;
 			let password = data.password;
 			let displayName = data.displayName;
-
 			dispatch(
 				startCreatingUserWithEmailPassword({ email, password, displayName })
 			);
