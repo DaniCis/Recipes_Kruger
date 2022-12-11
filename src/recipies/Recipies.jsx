@@ -5,22 +5,25 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 
 export default function Recipies() {
-
 	const { recipes } = RecipiesApi();
-	const [recipeName, setRecipeName] = useState([]);
+	const [recipeName, setRecipeName] = useState("");
 	const [infoSearch, setInfoSearch] = useState([]);
 	const [validationHome, setValidationHome] = useState(true);
 
-	useEffect(()=>{
-		if(recipeName === ''){
+	useEffect(() => {
+		if (recipeName === "") {
 			setValidationHome(true);
 		}
-	},[recipeName])
+	}, [recipeName]);
 
 	const handleSearch = async () => {
-		const searchInput = await searchRecipes(recipeName);
-		setValidationHome(false);
-		setInfoSearch(searchInput);		
+		if (recipeName === "") {
+			alert("Please write the recipe");
+		} else {
+			const searchInput = await searchRecipes(recipeName);
+			setValidationHome(false);
+			setInfoSearch(searchInput);
+		}
 	};
 
 	return (
@@ -28,76 +31,42 @@ export default function Recipies() {
 			<Navbar />
 			<div>
 				<div>
-					<div className="max-sm:flex justify-center">
-						<input
-							name="recipe"
-							type="text"
-							placeholder="Enter a recipe"
-							value={recipeName}
-							onChange={(e) => setRecipeName(e.target.value)}
-							className=" h-14 w-96 px-6 text-lg text-black bg-white border-2 rounded-lg border-opacity-50 outline-none focus:border-blue-500 placeholder-gray-300 
-						max-sm:w-80 "
-						/>
-					</div>
-					<div className="max-sm:flex justify-center">
-						<button
-							className="overflow-hidden
-                        rounded-sm
-                        shadow-md
-                        shadow-gray-400/50
-                        bg-gradient-to-r
-                        from-blue-400
-                        to-cyan-400
-                        py-1 px-5
-                        text-lg
-                        font-medium
-                        uppercase
-                        tracking-wider
-                        text-gray-50
-						mt-2 mb-5"
-							onClick={handleSearch}>
-							search
-						</button>
+					<div className="flex items-center justify-center px-2 mb-1 mt-5 sm:px-6 lg:px-2">
+						<div className="relative">
+							<input
+								type="text"
+								className="z-0 pl-5 pr-8 border-2 border-opacity-50 h-14 w-96 rounded-2xl focus:shadow focus:outline-none max-sm:w-64 max-sm:h-15"
+								placeholder="Search anything..."
+								value={recipeName}
+								onChange={(e) => setRecipeName(e.target.value)}
+							/>
+							<div className="absolute top-4 right-3">
+								<i
+									className="z-20 text-gray-400 fa fa-search hover:text-gray-500"
+									onClick={handleSearch}></i>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div>
 					{validationHome ? (
 						<>
-							<div className="container py-10 px-2 lg:ml-5">
-								<div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6">
+							<div className="py-10 px-2 lg:ml-5 md:flex md:justify-center ">
+								<div className="grid flex-wrap grid-cols-2 gap-4 lg:grid-cols-4 md:grid-cols-3 md:mx-2 max-sm:flex max-sm:justify-center 2xl:grid-cols-6 ">
 									{recipes.map((receta, index) => (
-										<div className="shadow-xl shadow-slate-500/30 rounded-lg bg-cover bg-center border border-slate-500/30">
-											<div className="m-5 flex justify-center">
+										<div className="w-56 shadow-xl card bg-base-100">
+											<figure className="px-10 pt-10">
 												<img
-													className="rounded-lg w-auto h-auto lg:mx-2 mt-5"
+													className="rounded-xl"
 													src={receta.image}
 													alt="1"
 												/>
-											</div>
-											<div className="p-5">
-												<h4
-													className="break-words text-lg font-medium flex justify-center"
-													key={index}>
-													{receta.label}
-												</h4>
-
-												<div className="flex justify-center">
+											</figure>
+											<div className="items-center text-center card-body">
+												<p className="card-title">{receta.label}</p>
+												<div className="justify-center card-actions ">
 													<Link to={`/details/${receta.uri.split("_", 2)[1]}`}>
-														<button
-															className="overflow-hidden
-														rounded-sm
-														shadow-md
-														shadow-gray-400/50
-														bg-gradient-to-r
-														from-blue-400
-														to-cyan-400
-														py-0 px-2
-														text-lg
-														font-medium
-														uppercase
-											tracking-wider
-											text-gray-50
-											mt-2 mb-5">
+														<button className="px-5 py-2 mx-5 overflow-hidden text-lg font-medium tracking-wider uppercase rounded-full shadow-md shadow-gray-400/50 bg-gradient-to-r from-blue-400 to-cyan-400 text-gray-50">
 															Details
 														</button>
 													</Link>
@@ -109,16 +78,27 @@ export default function Recipies() {
 							</div>
 						</>
 					) : (
-						<>
+						<div className="grid flex-wrap grid-cols-1 gap-4 lg:grid-cols-4 md:grid-cols-2 max-sm:flex max-sm:justify-center 2xl:grid-cols-6 ">
 							{infoSearch?.map((receta) => (
 								<>
-									<p>{receta.label}</p>
-									<Link to={`/details/${receta.uri.split("_", 2)[1]}`}>
-										<button>Details</button>
-									</Link>
+									<div className="w-56 shadow-xl card bg-base-100">
+										<figure className="px-10 pt-10">
+											<img className="rounded-xl" src={receta.image} alt="1" />
+										</figure>
+										<div className="items-center text-center card-body">
+											<p className="card-title">{receta.label}</p>
+											<div className="justify-center card-actions ">
+												<Link to={`/details/${receta.uri.split("_", 2)[1]}`}>
+													<button className="px-5 py-2 mx-5 overflow-hidden text-lg font-medium tracking-wider uppercase rounded-full shadow-md shadow-gray-400/50 bg-gradient-to-r from-blue-400 to-cyan-400 text-gray-50">
+														Details
+													</button>
+												</Link>
+											</div>
+										</div>
+									</div>
 								</>
 							))}
-						</>
+						</div>
 					)}
 				</div>
 			</div>
