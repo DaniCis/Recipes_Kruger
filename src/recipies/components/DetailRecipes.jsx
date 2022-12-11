@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { getRecipesId } from "../api/RecipesApi";
 import { Link } from "react-router-dom"
 import Swal from 'sweetalert2'
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 export default function DetailsRecipies() {
 	const params = useParams();
@@ -24,7 +26,7 @@ export default function DetailsRecipies() {
 		let savedId = true
 		if(savedRecipes !== null )
 		 	savedId = savedRecipes.map(recipe => recipe.uri.split("_",2)[1]).includes(id)
-		if(apiId && savedId){
+		if(savedId && apiId){
 			setHasId(true)
 			return true
 		}
@@ -80,7 +82,8 @@ export default function DetailsRecipies() {
 	};
 
 	return (
-		<div>
+		<>
+			<Navbar />
 			<div>
 				{hasId 
 					? <h3>{infos.label}</h3>
@@ -107,7 +110,11 @@ export default function DetailsRecipies() {
 							<li key={index}>{recipe.text}</li>
 						))}
 					</ul>
-					: <p>{infos.ingredients}</p>
+					: <ul>
+						{infos.ingredients?.map((recipe,index) => (
+							<li key={index}>{recipe}</li>
+						))}
+					</ul>
 				}
 				{(!isSaved && hasId) && 
 					 <button onClick={handleSave}>Agregar a mis recetas</button>
@@ -118,6 +125,7 @@ export default function DetailsRecipies() {
 					</Link>
 				}
 			</div>
-		</div>
+			<Footer />
+		</>
 	);
 }

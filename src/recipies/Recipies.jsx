@@ -1,14 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { RecipiesApi, searchRecipes } from "./api/RecipesApi";
-import { startLogout } from "../store/auth/thunks";
 import { useEffect, useState } from "react";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 export default function Recipies() {
-	const dispatch = useDispatch();
-	const { displayName } = useSelector((state) => state.auth);
-	const { recipes } = RecipiesApi();
 
+	const { recipes } = RecipiesApi();
 	const [recipeName, setRecipeName] = useState([]);
 	const [infoSearch, setInfoSearch] = useState([]);
 	const [validationHome, setValidationHome] = useState(true);
@@ -19,10 +17,6 @@ export default function Recipies() {
 		}
 	},[recipeName])
 
-	const onLogout = () => {
-		dispatch(startLogout());
-	}
-
 	const handleSearch = async () => {
 		const searchInput = await searchRecipes(recipeName);
 		setValidationHome(false);
@@ -30,13 +24,8 @@ export default function Recipies() {
 	};
 
 	return (
-		<div>
-			Recipes
-			<button onClick={onLogout}>Logout</button>
-			<div>{displayName}</div>
-			<Link to={`/recipeBook`}>
-				<button>See My Recipes</button>
-			</Link>
+		<>
+			<Navbar />
 			<div>
 				<div>
 					<div className="max-sm:flex justify-center">
@@ -133,6 +122,7 @@ export default function Recipies() {
 					)}
 				</div>
 			</div>
-		</div>
+			<Footer />
+		</>
 	);
 }

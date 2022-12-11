@@ -4,6 +4,8 @@ import RecipeBook from "../RecipeBook"
 import DetailsRecipies from "../components/DetailRecipes"
 import CreateRecipe from "../CreateRecipe"
 import EditRecipe from "../EditRecipe"
+import About from "../About"
+import Contact from "../Contact"
 
 export const RecipiesRoutes = () => {
   return (
@@ -13,6 +15,8 @@ export const RecipiesRoutes = () => {
       <Route path="/details/:id" element={ <DetailsRecipies /> } />
       <Route path="/createRecipe" element={ <CreateRecipe />} />
       <Route path="/editRecipe/:id" element={ <EditRecipe /> } />
+      <Route path="/about" element={ <About />} />
+      <Route path="/contact" element={ <Contact />} />
       <Route path="/*" element={ <Navigate to="/home" /> } />
     </Routes>
   )

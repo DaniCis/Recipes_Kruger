@@ -2,7 +2,9 @@ import { useEffect, useState } from "react"
 import { useNavigate,Link } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux";
 import { deleteRecipe } from "../store/recipes/recipeSlice";
+import Navbar from "./components/Navbar";
 import Swal from 'sweetalert2'
+import Footer from "./components/Footer";
 
 const RecipeBook=() =>{
     const [savedRecipes, setSavedRecipes] = useState([])
@@ -72,47 +74,112 @@ const RecipeBook=() =>{
     }
 
     return(
-        <div>
-            <Link to='/'>
-                <button>Regresar</button>
-            </Link>
-            <h2>Recetario</h2>
-            <button onClick={()=>{ navigate('/createRecipe')} }>Agregar nueva receta</button>
+        <>
+            <Navbar />
             <div>
-                <h4>Mis propias recetas</h4>
-                { myRecipes !=="[]" &&
-                    <ol>
-                        {myRecipes?.map( (recipe,index) => (
-                        <li key={index}>
-                            <p>{recipe.title}</p>
-                            <p>Author: {recipe.author}</p>
-                            <p>{recipe.servings} servings</p>
-                            <Link to={`/details/${recipe.id}`}>
-                                <button>More Details</button>
-                            </Link>
-                            <button onClick={() => handleDeleteMY(recipe.id)}>Delete</button>
-                        </li> 
-                        ))}
-                    </ol>
-                }
+                <h2 className="text-xl font-bold text-center capitalize" >My recipe book</h2>
+                <div className="flex ml-6 md:justify-end md:mr-8">
+                    <button className="btn btn-sm" onClick={()=>{ navigate('/createRecipe')} }>Agregar nueva receta</button>
+                </div>
+                <div className="overflow-x-auto w-full">
+                    <h4 className="text-lg my-4 ml-4">Mis propias recetas</h4>
+                    <table className="table w-full ">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Recipe Name</th>
+                                <th>Author</th>
+                                <th>Meal</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        { myRecipes !=="[]" &&
+                            <>
+                            {myRecipes?.map( (recipe,index) => (
+                            <tr key={index}  className="hover">
+                                <td>{index+1}</td>
+                                <td>
+                                    <div className="flex items-center space-x-3">
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle w-12 h-12">
+                                                <img src={recipe.image} alt="recipe" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="font-bold">{recipe.title}</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td> {recipe.author}</td>
+                                <td>{recipe.mealType}</td>
+                                <td><Link to={`/details/${recipe.id}`}>
+                                        <button className="btn btn-ghost btn-xs">More Details</button>
+                                    </Link>
+                                </td>
+                                <td><button  className="btn btn-ghost" onClick={() => handleDeleteMY(recipe.id)}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="red">
+                                        <path d="m4.015 5.494h-.253c-.413 0-.747-.335-.747-.747s.334-.747.747-.747h5.253v-1c0-.535.474-1 1-1h4c.526 0 1 .465 1 1v1h5.254c.412 0 .746.335.746.747s-.334.747-.746.747h-.254v15.435c0 .591-.448 1.071-1 1.071-2.873 0-11.127 0-14 0-.552 0-1-.48-1-1.071zm14.5 0h-13v15.006h13zm-4.25 2.506c-.414 0-.75.336-.75.75v8.5c0 .414.336.75.75.75s.75-.336.75-.75v-8.5c0-.414-.336-.75-.75-.75zm-4.5 0c-.414 0-.75.336-.75.75v8.5c0 .414.336.75.75.75s.75-.336.75-.75v-8.5c0-.414-.336-.75-.75-.75zm3.75-4v-.5h-3v.5z" />
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            ))}
+                            </>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+                <div className="overflow-x-auto w-full "> 
+                    <h4 className="text-lg my-4 ml-4">Mis recetas guardadas</h4>
+                    <table className="table w-full">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Recipe Name</th>
+                                <th>Author</th>
+                                <th>Meal</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {savedRecipes?.map( (recipe,index) => (
+                            <tr key={index}  className="hover">
+                                <td>{index+1}</td>
+                                <td>
+                                    <div className="flex items-center space-x-3">
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle w-12 h-12">
+                                                <img src={recipe.image} alt="recipe" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="font-bold">{recipe.label}</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td> {recipe.source}</td>
+                                <td>{recipe.mealType}</td>
+                                <td><Link to={`/details/${recipe.uri.split("_", 2)[1]}`}>
+                                        <button className="btn btn-ghost btn-xs">More Details</button>
+                                    </Link>
+                                </td>
+                                <td><button  className="btn btn-ghost" onClick={() => handleDeleteSR(recipe.label)}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="red">
+                                        <path d="m4.015 5.494h-.253c-.413 0-.747-.335-.747-.747s.334-.747.747-.747h5.253v-1c0-.535.474-1 1-1h4c.526 0 1 .465 1 1v1h5.254c.412 0 .746.335.746.747s-.334.747-.746.747h-.254v15.435c0 .591-.448 1.071-1 1.071-2.873 0-11.127 0-14 0-.552 0-1-.48-1-1.071zm14.5 0h-13v15.006h13zm-4.25 2.506c-.414 0-.75.336-.75.75v8.5c0 .414.336.75.75.75s.75-.336.75-.75v-8.5c0-.414-.336-.75-.75-.75zm-4.5 0c-.414 0-.75.336-.75.75v8.5c0 .414.336.75.75.75s.75-.336.75-.75v-8.5c0-.414-.336-.75-.75-.75zm3.75-4v-.5h-3v.5z" />
+                                    </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div>
-                <h4>Mis recetas guardadas</h4>
-                <ol>
-                {savedRecipes?.map( (recipe,index) => (
-                    <li key={index}>
-                        <p>{recipe.label}</p>
-                        <p>Source: {recipe.source}</p>
-                        <p>{recipe.yield} servings</p>
-                        <Link to={`/details/${recipe.uri.split("_", 2)[1]}`}>
-                            <button>More Details</button>
-                        </Link>
-                        <button onClick={() => handleDeleteSR(recipe.label)}>Delete</button>
-                    </li> 
-                    ))}
-                </ol>
-            </div>
-        </div>
+            <Footer />
+        </>
     )
 
 }
