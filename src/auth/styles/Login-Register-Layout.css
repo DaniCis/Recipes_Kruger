@@ -240,7 +240,6 @@ img{
   }
 
   .login__img{
-    margin-top: -5rem;
     display: flex;
     width: 600px;
     height: 588px;
@@ -267,11 +266,18 @@ img{
   }
 }
 
+#buttonAuth{
+  margin-left: -5rem;
+}
+
 @media screen and (min-width: 768px) {
 	 :root {
 		 --normal-font-size: 1rem;
 		 --small-font-size: 0.875rem;
 	}
+
+  
+  
 }
 /*===== BASE =====*/
  *, ::before, ::after {
@@ -425,9 +431,15 @@ img{
 		 width: 348px;
 		 justify-self: center;
 	}
+  
 
 }
 
+@media screen and (max-width:1022px) {
+  #buttonAuth{
+    margin-left: 3.5rem;
+  }
+}
 
  @media screen and (min-width: 1024px) {
 	 .login {

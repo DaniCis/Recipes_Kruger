@@ -1,8 +1,9 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { startCreatingUserWithEmailPassword } from "../../store/auth/thunks";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import "../styles/Login-Register-Layout.css";
+
 
 export default function RegisterPage() {
 	const dispatch = useDispatch();
@@ -26,6 +27,7 @@ export default function RegisterPage() {
 			let email = data.email;
 			let password = data.password;
 			let displayName = data.displayName;
+
 			dispatch(
 				startCreatingUserWithEmailPassword({ email, password, displayName })
 			);

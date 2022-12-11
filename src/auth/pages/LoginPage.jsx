@@ -1,11 +1,15 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { startLoginWithEmailPassword } from "../../store/auth/thunks";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import "../styles/Login-Register-Layout.css";
+import { useState } from "react";
+import Swal from "sweetalert2";
 
 export default function LoginPage() {
 	const dispatch = useDispatch();
+
+	const { errorMessage } = useSelector((state) => state.auth);
 
 	const loginSchema = Yup.object().shape({
 		email: Yup.string().email("Invalid email").required("Email is required"),
@@ -24,6 +28,21 @@ export default function LoginPage() {
 			let email = data.email;
 			let password = data.password;
 			dispatch(startLoginWithEmailPassword({ email, password }));
+			console.log(errorMessage)
+			// if(errorMessage === "Firebase: Error (auth/wrong-password)."){
+			// 	Swal.fire({
+			// 		icon: "error",
+			// 		title: "Oops...",
+			// 		text: "Password is incorrect",
+			// 	});
+			// }
+			// if (errorMessage === "Firebase: Error (auth/user-not-found)."){
+			// 	Swal.fire({
+			// 		icon: "error",
+			// 		title: "Oops...",
+			// 		text: "User not found",
+			// 	});
+			// }
 			formik.resetForm();
 		},
 	});
@@ -89,6 +108,7 @@ export default function LoginPage() {
 					</button>
 					
 				</div>
+
 			</form>
 		</div>
 	);
