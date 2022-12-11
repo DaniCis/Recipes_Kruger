@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import "../styles/Login-Register-Layout.css";
 import logo from "../../Assets/donat.svg";
 
 export default function LayoutAuth() {
-	const [addClass, setAddClass] = useState("");
 	const [activeForm, setActiveForm] = useState("login");
 
 	return (

@@ -3,8 +3,6 @@ import { startLoginWithEmailPassword } from "../../store/auth/thunks";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import "../styles/Login-Register-Layout.css";
-import { useState } from "react";
-import Swal from "sweetalert2";
 
 export default function LoginPage() {
 	const dispatch = useDispatch();
