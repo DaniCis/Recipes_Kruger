@@ -54,7 +54,7 @@ export default function Recipies() {
 							<div className="py-10 px-2 lg:ml-5 md:flex md:justify-center ">
 								<div className="grid flex-wrap grid-cols-2 gap-4 lg:grid-cols-4 md:grid-cols-3 md:mx-2 max-sm:flex max-sm:justify-center 2xl:grid-cols-6 ">
 									{recipes.map((receta, index) => (
-										<div className="w-56 shadow-xl card bg-base-100">
+										<div key={index} className="w-56 shadow-xl card bg-base-100">
 											<figure className="px-10 pt-10">
 												<img
 													className="rounded-xl"
@@ -79,9 +79,9 @@ export default function Recipies() {
 						</>
 					) : (
 						<div className="grid flex-wrap grid-cols-1 gap-4 lg:grid-cols-4 md:grid-cols-2 max-sm:flex max-sm:justify-center 2xl:grid-cols-6 ">
-							{infoSearch?.map((receta) => (
+							{infoSearch?.map((receta,index) => (
 								<>
-									<div className="w-56 shadow-xl card bg-base-100">
+									<div key={index} className="w-56 shadow-xl card bg-base-100">
 										<figure className="px-10 pt-10">
 											<img className="rounded-xl" src={receta.image} alt="1" />
 										</figure>
