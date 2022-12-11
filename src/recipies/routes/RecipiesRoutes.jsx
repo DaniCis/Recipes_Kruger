@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom"
 import Recipies from "../Recipies"
 import RecipeBook from "../RecipeBook"
 import DetailsRecipies from "../components/DetailRecipes"
+import SearchRecipe from '../SearchRecipe'
 import CreateRecipe from "../CreateRecipe"
 import EditRecipe from "../EditRecipe"
 import About from "../About"
@@ -13,6 +14,7 @@ export const RecipiesRoutes = () => {
       <Route path="/home" element={ <Recipies /> } />
       <Route path="/recipeBook" element={ <RecipeBook />} />
       <Route path="/details/:id" element={ <DetailsRecipies /> } />
+      <Route path="/searchdetails/:id" element={ <SearchRecipe /> } />
       <Route path="/createRecipe" element={ <CreateRecipe />} />
       <Route path="/editRecipe/:id" element={ <EditRecipe /> } />
       <Route path="/about" element={ <About />} />
