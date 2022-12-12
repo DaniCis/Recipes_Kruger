@@ -27,7 +27,7 @@ Además, podrás almacenar tus propias recetas y armar una colección virtual co
 - Axios
 - Firebase
 - Tailwind CSS
-- Netlify
+- Vercel
 
 
 ## 👀 Prerequisites
