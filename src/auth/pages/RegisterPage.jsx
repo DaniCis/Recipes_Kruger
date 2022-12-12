@@ -31,6 +31,7 @@ export default function RegisterPage() {
 				startCreatingUserWithEmailPassword({ email, password, displayName })
 			);
 			formik.resetForm();
+			
 		},
 	});
 
@@ -38,7 +39,7 @@ export default function RegisterPage() {
 		<div>
 			<form onSubmit={formik.handleSubmit} className="login__create">
 				<div className="mb-4">
-					<h1 className="font-semibold text-xl text-gray-700">Create New Account</h1>
+					<h1 className="text-xl font-semibold text-gray-700">Create New Account</h1>
 				</div>
 				<div>
 					<input
@@ -47,11 +48,11 @@ export default function RegisterPage() {
 						placeholder="Username"
 						defaultValue={formik.values.displayName}
 						onChange={formik.handleChange}
-						className= "w-96 sm:w-72 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 max-sm:w-72"
+						className= "p-3 mt-4 text-base leading-none text-gray-900 bg-gray-100 border border-gray-200 rounded w-96 sm:w-72 focus:oultine-none focus:border-indigo-700 max-sm:w-72"
 					/>
 					<div></div>
 					{formik.touched.displayName && formik.errors.displayName && (
-						<span className="text-red-400 flex text-xs ml-6 mt-2">
+						<span className="flex mt-2 ml-6 text-xs text-red-400">
 							{formik.errors.displayName}
 						</span>
 					)}
@@ -63,11 +64,11 @@ export default function RegisterPage() {
 						placeholder="correo@google.com"
 						defaultValue={formik.values.email}
 						onChange={formik.handleChange}
-						className= "w-96 sm:w-72 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 max-sm:w-72"
+						className= "p-3 mt-4 text-base leading-none text-gray-900 bg-gray-100 border border-gray-200 rounded w-96 sm:w-72 focus:oultine-none focus:border-indigo-700 max-sm:w-72"
 					/>
 					<div></div>
 					{formik.touched.email && formik.errors.email && (
-						<span className="text-red-400 flex text-xs ml-6 mt-2">
+						<span className="flex mt-2 ml-6 text-xs text-red-400">
 							{formik.errors.email}
 						</span>
 					)}
@@ -79,20 +80,17 @@ export default function RegisterPage() {
 						placeholder="Password"
 						defaultValue={formik.values.password}
 						onChange={formik.handleChange}
-						className= "w-96 sm:w-72 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 max-sm:w-72"
+						className= "p-3 mt-4 text-base leading-none text-gray-900 bg-gray-100 border border-gray-200 rounded w-96 sm:w-72 focus:oultine-none focus:border-indigo-700 max-sm:w-72"
 					/>
 					<div></div>
 					{formik.touched.password && formik.errors.password && (
-						<span className="text-red-400 flex text-xs ml-6 mt-2">
+						<span className="flex mt-2 ml-6 text-xs text-red-400">
 							{formik.errors.password}
 						</span>
 					)}
 				</div>
 				<div className="">
-					<button type="submit" className="
-						mt-5 rounded-lg shadow-md shadow-gray-400/50
-                        bg-gradient-to-r from-rose-400 to-orange-300
-                        py-3 px-12 text-lg font-medium capitalize text-gray-100" value="Sign up">
+					<button type="submit" className="px-12 py-3 mt-5 text-lg font-medium text-gray-100 capitalize rounded-lg shadow-md shadow-gray-400/50 bg-gradient-to-r from-rose-400 to-orange-300" value="Sign up">
 						Register
 					</button>
 				</div>

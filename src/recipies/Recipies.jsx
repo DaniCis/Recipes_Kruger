@@ -57,12 +57,12 @@ export default function Recipies() {
 			<Navbar />
 			<div className="bg-gray-100">
 				<div>
-				<h2 className="font-semibold text-3xl text-center pt-6 text-gray-800">Feeling hungry? <br/> Find anything you desire!</h2>
-					<div className="flex items-center justify-center px-2 mb-1 mt-8 sm:px-6 lg:px-2">
+				<h2 className="pt-6 text-3xl font-semibold text-center text-gray-800">Feeling hungry? <br/> Find anything you desire!</h2>
+					<div className="flex items-center justify-center px-2 mt-8 mb-1 sm:px-6 lg:px-2">
 						<div className="relative">
 							<input
 								type="text"
-								className="z-0 pl-5 pr-8 border-2 border-opacity-50 h-12 w-96 rounded-2xl focus:shadow focus:outline-none max-sm:w-64 max-sm:h-15"
+								className="z-0 h-12 pl-5 pr-8 border-2 border-opacity-50 w-96 rounded-2xl focus:shadow focus:outline-none max-sm:w-64 max-sm:h-15"
 								placeholder="Search for recipes, ingredients..."
 								value={recipeName}
 								onChange={(e) => setRecipeName(e.target.value)}
@@ -78,7 +78,7 @@ export default function Recipies() {
 				<div className="min-h-screen">
 					{validationHome ? (
 						<>
-							<div className="py-8 px-2 lg:ml-5 md:flex md:justify-center ">
+							<div className="px-2 py-8 lg:ml-5 md:flex md:justify-center ">
 								<div className="grid flex-wrap grid-cols-2 gap-4 lg:grid-cols-4 md:grid-cols-3 md:mx-2 max-sm:flex max-sm:justify-center 2xl:grid-cols-5">
 									{recipes.map((receta, index) => (
 										<div key={index} className="w-56 shadow-xl card bg-base-100">
@@ -86,10 +86,10 @@ export default function Recipies() {
 												<img className="rounded-lg" src={receta.image} alt="imagen" />
 											</figure>
 											<div className="items-center text-center card-body">
-												<p className="card-title text-sm font-bold">{receta.label}</p>
+												<p className="text-sm font-bold card-title">{receta.label}</p>
 												<div className="justify-center card-actions ">
 													<Link to={`/details/${receta.uri.split("_", 2)[1]}`}>
-														<button aria-label="details-btn" className="px-4 py-2 mt-2 text-base font-medium rounded-xl shadow-lg bg-gradient-to-r from-teal-200 to-lime-200">
+														<button aria-label="details-btn" className="px-4 py-2 mt-2 text-base font-medium shadow-lg rounded-xl bg-gradient-to-r from-teal-200 to-lime-200">
 															View Details
 														</button>
 													</Link>
@@ -105,7 +105,7 @@ export default function Recipies() {
 							{loading ? (
 								<Loading />
 							) : (
-								<div className="py-8 px-2 lg:ml-5 md:flex md:justify-center ">
+								<div className="px-2 py-8 lg:ml-5 md:flex md:justify-center ">
 									<div className="grid flex-wrap grid-cols-2 gap-4 lg:grid-cols-4 md:grid-cols-3 md:mx-2 max-sm:flex max-sm:justify-center 2xl:grid-cols-5">
 										{infoSearch?.map((receta, index) => (
 											<>
@@ -120,13 +120,13 @@ export default function Recipies() {
 														/>
 													</figure>
 													<div className="items-center text-center card-body">
-														<p className="card-title text-sm font-bold">{receta.label}</p>
+														<p className="text-sm font-bold card-title">{receta.label}</p>
 														<div className="justify-center card-actions ">
 															<Link
 																to={`/searchdetails/${
 																	receta.uri.split("_", 2)[1]
 																}`}>
-																<button className="px-4 py-2 mt-2 text-base font-medium rounded-xl shadow-lg bg-gradient-to-r from-teal-200 to-lime-200">
+																<button className="px-4 py-2 mt-2 text-base font-medium shadow-lg rounded-xl bg-gradient-to-r from-teal-200 to-lime-200">
 																	View Details
 																</button>
 															</Link>
