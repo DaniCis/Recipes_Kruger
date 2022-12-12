@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./src/Assets/kruger-Logo.png" height="120px">
+<img src="./src/Assets/kruger-logo.png" height="120px">
 <img src="./src/Assets/recipe.png" height="100px">
 
 <h1>Cook Book App</h1>
@@ -12,7 +12,7 @@ Busca, crea y guarda todas tus recetas en un solo lugar!
 [View Demo](app)
 </div>
 
-## About this project
+## 🌟 About this project
 
 En esta aplicación podrás buscar recetas de distintos autores y con distintos ingredientes.
 Además, podrás almacenar tus propias recetas y armar una colección virtual con todas ellas.
@@ -30,11 +30,11 @@ Además, podrás almacenar tus propias recetas y armar una colección virtual co
 - Netlify
 
 
-## Prerequisites
+## 👀 Prerequisites
 
 Es necesario tener Git y Node.js instalado en tu computadora antes de instalar este proyecto.
 
-## Run Locally
+## 🏃 Run Locally
 
 Clonar el repositorio
 
@@ -61,7 +61,7 @@ Iniciar el servidor
 ```
 Por defecto la aplicación se ejecutará en tu navegador en https://localhost:3000
 
-## Running Tests
+## 🧪 Running Tests
 
 Para ejecutar las pruebas de la aplicación, utilizar el siguiente comando
 
@@ -70,7 +70,7 @@ Para ejecutar las pruebas de la aplicación, utilizar el siguiente comando
 ```
 
 
-## API Reference
+## 📜 API Reference
 
 Para este proyecto se utilizó una  [API gratuita](https://developer.edamam.com/recipe-demo) para buscar recetas de cocina.
 
