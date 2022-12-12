@@ -131,4 +131,4 @@ Para correr este proyecto, es necesario añadir las siguientes variables de ento
 
 ## Show your support
 
-Give a ⭐ if you like this project!
+Deja una ⭐ si te ha gustado este proyecto!
