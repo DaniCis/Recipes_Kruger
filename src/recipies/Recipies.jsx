@@ -88,7 +88,7 @@ export default function Recipies() {
 											<p className="card-title text-sm font-bold">{receta.label}</p>
 											<div className="justify-center card-actions ">
 												<Link to={`/details/${receta.uri.split("_", 2)[1]}`}>
-													<button className="px-4 py-2 mt-2 text-base font-medium rounded-xl shadow-lg bg-gradient-to-r from-teal-200 to-lime-200">
+													<button aria-label="details-btn" className="px-4 py-2 mt-2 text-base font-medium rounded-xl shadow-lg bg-gradient-to-r from-teal-200 to-lime-200">
 														View Details
 													</button>
 												</Link>

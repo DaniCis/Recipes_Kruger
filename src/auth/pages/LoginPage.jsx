@@ -24,14 +24,13 @@ export default function LoginPage() {
 			let email = data.email;
 			let password = data.password;
 			dispatch(startLoginWithEmailPassword({ email, password }));
-
 			formik.resetForm();
 		},
 	});
 
 	return (
 		<div className="login__registre">
-			<form onSubmit={formik.handleSubmit} action="#" className="sign-in-form">
+			<form onSubmit={formik.handleSubmit} className="sign-in-form">
 				<div className="login__title">
 					<h1>Login</h1>
 				</div>
@@ -85,6 +84,7 @@ export default function LoginPage() {
                         uppercase
                         tracking-wider
                         text-gray-50"
+						aria-label="login-btn"
 						type="submit">
 						Login
 					</button>
