@@ -17,13 +17,13 @@ export default function DetailsRecipies() {
 	useEffect(() => {
 		setLoading(true);
 		setTimeout(() => {
-			fetchInfo();
+			fetchInfo(params.id);
 			setLoading(false)
 		}, 1000);
 	}, [params.id]);
 
-	const fetchInfo = async () => {
-		const info = await getRecipesId(params.id);
+	const fetchInfo = async (id) => {
+		const info = await getRecipesId(id);
 		setInfos(info);
 		checkSavedRecipes(info);
 	};
