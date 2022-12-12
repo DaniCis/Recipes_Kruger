@@ -9,13 +9,15 @@
 
 Busca, crea y guarda todas tus recetas en un solo lugar!
 
-[View Demo](https://cookbook-kv-dc.vercel.app) || [Video](https://youtu.be/MKoJPXldkPA)
+[View Demo](https://cookbook-kv-dc.vercel.app) | [Video](https://youtu.be/MKoJPXldkPA) | [Wireframe in Figma](https://www.figma.com/file/cHM2qY3UV7a6UgPYdqTjDA/Untitled?node-id=0%3A1&t=gpLIX2ZGd57g5eft-0)
 </div>
 
 ## 🌟 About this project
 
 En esta aplicación podrás buscar recetas de distintos autores y con distintos ingredientes.
 Además, podrás almacenar tus propias recetas y armar una colección virtual con todas ellas.
+
+<img src="./src/Assets/preview.png" height="300" /> 
 
 ## 🛠 Built with
 
@@ -129,4 +131,4 @@ Para correr este proyecto, es necesario añadir las siguientes variables de ento
 
 ## Show your support
 
-Give a ⭐ if you like this project!
+Deja una ⭐ si te ha gustado este proyecto!
