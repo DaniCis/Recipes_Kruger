@@ -9,7 +9,7 @@
 
 Busca, crea y guarda todas tus recetas en un solo lugar!
 
-[View Demo](https://cookbook-kv-dc.vercel.app) | [Video](https://youtu.be/MKoJPXldkPA)
+[View Demo](https://cookbook-kv-dc.vercel.app) | [Video](https://youtu.be/MKoJPXldkPA) | [Wireframe in Figma](https://www.figma.com/file/cHM2qY3UV7a6UgPYdqTjDA/Untitled?node-id=0%3A1&t=gpLIX2ZGd57g5eft-0)
 </div>
 
 ## 🌟 About this project
