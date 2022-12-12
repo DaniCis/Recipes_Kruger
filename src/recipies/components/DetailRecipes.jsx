@@ -98,9 +98,9 @@ export default function DetailsRecipies() {
 			{ loading 
 				? <Loading />
 				:(
-					<div className="flex items-center justify-center w-full h-auto mt-10">
-						<div className="flex flex-col w-full max-w-4xl p-10 space-y-6 text-white shadow-lg md:flex-row md:space-x-6 md:space-y-0 rounded-xl max-sm:w-auto max-sm:my-5">
-							<div className="flex flex-col  p-8 space-y-8 text-gray-600 bg-white shadow-lg rounded-xl w-8/12 max-sm:w-80">
+					<div className="flex items-center justify-center my-4">
+						<div className="flex flex-col w-full max-w-4xl p-10 space-y-6 bg-gray-100 text-white shadow-lg md:flex-row md:space-x-6 md:space-y-0 rounded-xl max-sm:w-auto max-sm:my-5">
+							<div className="flex flex-col p-8 space-y-8 text-gray-600 bg-white shadow-lg rounded-xl w-8/12 max-sm:w-80">
 								<div className="my-5">
 									{hasId ? (
 										<h3 className="text-xl font-bold text-center">{infos.label}</h3>

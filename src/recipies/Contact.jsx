@@ -49,7 +49,7 @@ const Contact = () => {
                     <div className="md:flex items-center mt-8">
                         <div className="md:w-72 flex flex-col">
                             <label className="text-base font-semibold leading-none text-gray-800">Name</label>
-                            <input type="text" name="title" className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"onChange={formik.handleChange}  value={formik.values.title}/>
+                            <input type="text" name="title" className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100" onChange={formik.handleChange}  value={formik.values.title}/>
                             {formik.touched.title && formik.errors.title && (
                                 <span className="text-red-400 flex text-xs">
                                     {formik.errors.title}

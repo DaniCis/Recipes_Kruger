@@ -8,7 +8,7 @@ export default function LayoutAuth() {
 	const [activeForm, setActiveForm] = useState("login");
 
 	return (
-		<div className="login">
+		<div className="login bg-cover bg-[url('https://img.freepik.com/free-photo/colored-vegetables-white-background_179666-40.jpg?w=2000')]">
 			<div className="login__content">
 				<div className="login__img">
 					<img src={logo} alt="imagen" />
@@ -24,21 +24,21 @@ export default function LayoutAuth() {
 							<RegisterPage />
 						</>
 					)}
-					<div className="flex h-12 mt-96">
+					<div className="flex -mt-3">
 						<button
-						 id="buttonAuth"
+						 id=""
 							className={
 								activeForm === "login"
-									? "overflow-hidden rounded-sm shadow-md shadow-gray-400/50 bg-gradient-to-r from-blue-400 to-cyan-400 text-sm w-52 font-medium tracking-wider uppercase  text-gray-50 py-1 px-2"
-									: "overflow-hidden rounded-sm shadow-md shadow-gray-400/50 bg-gradient-to-r from-rose-400 to-orange-300 text-sm w-60 font-medium tracking-wider uppercase text-gray-50 px-2"
+									? "rounded-lg shadow-md shadow-gray-400/50 bg-gradient-to-r from-rose-400 to-orange-300 text-sm font-medium  capitalize text-gray-50 py-4 px-3 mt-96 ml-24 md:ml-12 lg:-ml-28"
+									: "rounded-lg shadow-md shadow-gray-400/50 bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] from-yellow-200 via-yellow-400 to-yellow-700 text-sm w-60 font-medium capitalize text-gray-50 py-4 px-3 mt-96 ml-24 md:ml-12 lg:-ml-28 "
 							}
 							type="button"
 							onClick={() =>
 								setActiveForm(activeForm === "login" ? "register" : "login")
 							}>
 							{activeForm === "login"
-								? "Create an account"
-								: "Already have an account"}
+								? "New member? Create an account"
+								: "Already have an account? Login"}
 						</button>
 					</div>
 				</div>

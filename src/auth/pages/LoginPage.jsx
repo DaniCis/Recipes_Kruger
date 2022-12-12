@@ -32,58 +32,48 @@ export default function LoginPage() {
 		<div className="login__registre">
 			<form onSubmit={formik.handleSubmit} className="sign-in-form">
 				<div className="login__title">
-					<h1>Login</h1>
+					<h1 className="font-semibold text-gray-700">Hello Again!</h1>
 				</div>
-				<div className="login__box">
+				<div>
 					<input
 						name="email"
 						type="email"
 						placeholder="correo@google.com"
 						defaultValue={formik.values.email}
 						onChange={formik.handleChange}
-						className = "w-72"
+						className= "w-96 sm:w-72 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200"
 						
 					/>
 					<div></div>
 					{formik.touched.email && formik.errors.email && (
-						<span className="text-red-400 flex text-xs">
+						<span className="text-red-400 flex text-xs ml-6 mt-2" >
 							{formik.errors.email}
 						</span>
 					)}
 				</div>
-				<div className="login__box">
+				<div>
 					<input
 						name="password"
 						type="password"
 						placeholder="Password"
 						defaultValue={formik.values.password}
 						onChange={formik.handleChange}
-						className = "w-72"
+						className = "w-96 sm:w-72 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200"
 						
 					/>
 					<div></div>
 					{formik.touched.password && formik.errors.password && (
-						<span className="text-red-400 flex text-xs">
+						<span className="text-red-400 flex text-xs ml-6 mt-2">
 							{formik.errors.password}
 						</span>
 					)}
 				</div>
 				<div >
 					<button
-						className="overflow-hidden
-						mt-5
-                        rounded-sm
-                        shadow-md
-                        shadow-gray-400/50
-                        bg-gradient-to-r
-                        from-blue-400
-                        to-cyan-400
-                        py-3 px-5
-                        text-lg
-                        font-medium
-                        uppercase
-                        tracking-wider
-                        text-gray-50"
+						className="
+						mt-10 rounded-lg shadow-md shadow-gray-400/50
+                        bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] from-yellow-200 via-yellow-400 to-yellow-700 
+                        py-3 px-12 text-lg font-medium capitalize text-gray-100"
 						aria-label="login-btn"
 						type="submit">
 						Login

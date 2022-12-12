@@ -71,7 +71,7 @@ const RecipeBook = () => {
 		<>
 			<Navbar />
 			<div className="max-h-min">
-				<h2 className="text-xl font-bold text-center capitalize">
+				<h2 className="text-2xl my-6 font-bold text-center capitalize">
 					My recipe book
 				</h2>
 				<div className="flex ml-6 md:justify-end md:mr-8">
@@ -100,7 +100,7 @@ const RecipeBook = () => {
 							</>
 						) : (
 							<>
-								<h4 className="text-lg my-4 ml-4 flex justify-center">My own recipes</h4>
+								<h4 className="text-lg my-4 ml-4 flex justify-center font-semibold">My own recipes</h4>
                                 <div className="w-11/12 mb-20 max-sm:ml-2 xl:ml-16">
 								<table className="table w-full">
 									<thead>
@@ -159,6 +159,7 @@ const RecipeBook = () => {
 													</tr>
 												))}
 											</>
+											
 										)}
 									</tbody>
 								</table>
@@ -171,7 +172,7 @@ const RecipeBook = () => {
 							<span></span>
 						) : (
 							<>
-								<h4 className="text-lg my-4 ml-4 flex justify-center">My saved recipes</h4>
+								<h4 className="text-lg my-4 ml-4 flex justify-center font-semibold">My saved recipes</h4>
                                 <div className="w-11/12 max-sm:ml-2 xl:ml-16">
 								<table className="table w-full">
 									<thead>

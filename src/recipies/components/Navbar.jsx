@@ -1,7 +1,7 @@
 import { NavLink , Link} from 'react-router-dom';
 import { startLogout } from "../../store/auth/thunks";
 import { useDispatch, useSelector } from "react-redux";
-
+import logo from "../../Assets/kruger-blanco.png"
 const Navbar = () =>{
 
     const dispatch = useDispatch();
@@ -12,7 +12,7 @@ const Navbar = () =>{
 	}
 
     return(
-        <div className="navbar bg-lime-300">
+        <div className="navbar bg-yellow-500">
             <div className="navbar-start">
                 <div className="dropdown">
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -30,7 +30,8 @@ const Navbar = () =>{
                     </li>
                 </ul>
                 </div>
-                <p className="normal-case text-xl">Kruger Recipes</p>
+                <img src={logo} className="w-12 mx-2" alt='logo'/>
+                <p className="font-medium text-xl">CookBook</p>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
