@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import "../styles/Login-Register-Layout.css";
-import logo from "../../Assets/donat.svg";
+import logo from "../../Assets/cooking.svg";
 
 export default function LayoutAuth() {
 	const [activeForm, setActiveForm] = useState("login");
@@ -11,7 +11,7 @@ export default function LayoutAuth() {
 		<div className="login">
 			<div className="login__content">
 				<div className="login__img">
-					<img src={logo} alt="" />
+					<img src={logo} alt="imagen" />
 				</div>
 
 				<div className="login__forms">

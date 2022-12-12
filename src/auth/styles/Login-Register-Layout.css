@@ -39,6 +39,8 @@ body{
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   color: var(--first-color-dark);
+  background: url('https://img.freepik.com/free-photo/colored-vegetables-white-background_179666-40.jpg?w=2000');
+  background-size: cover;
 }
 
 h1{
@@ -466,9 +468,5 @@ img{
 	}
 	 .login__registre, .login__create {
 		 left: -11rem;
-	}
-	 .login__registre {
-	}
-	 .login__create {
 	}
 }

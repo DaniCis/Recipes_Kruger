@@ -171,7 +171,7 @@ const RecipeBook = () => {
 							<span></span>
 						) : (
 							<>
-								<h4 className="text-lg my-4 ml-4 flex justify-center">Mis saved recipes</h4>
+								<h4 className="text-lg my-4 ml-4 flex justify-center">My saved recipes</h4>
                                 <div className="w-11/12 max-sm:ml-2 xl:ml-16">
 								<table className="table w-full">
 									<thead>
