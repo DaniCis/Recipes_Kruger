@@ -72,7 +72,7 @@ const RecipeBook = () => {
 	return (
 		<>
 			<Navbar />
-			<div className="">
+			<div className="max-h-min">
 				<h2 className="text-xl font-bold text-center capitalize">
 					My recipe book
 				</h2>
