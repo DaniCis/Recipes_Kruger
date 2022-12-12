@@ -1,70 +1,134 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="./src/Assets/kruger-logo.png" height="120px">
+<img src="./src/Assets/recipe.png" height="100px">
 
-## Available Scripts
+<h1>Cook Book App</h1>
 
-In the project directory, you can run:
+<img src="https://img.shields.io/badge/MADEWITH-React-1572B6?style=for-the-badge&logo=React" height="30" />   
 
-### `npm start`
+Busca, crea y guarda todas tus recetas en un solo lugar!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[View Demo](https://cookbook-kv-dc.vercel.app) | [Video](https://youtu.be/MKoJPXldkPA) | [Wireframe in Figma](https://www.figma.com/file/cHM2qY3UV7a6UgPYdqTjDA/Untitled?node-id=0%3A1&t=gpLIX2ZGd57g5eft-0)
+</div>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🌟 About this project
 
-### `npm test`
+En esta aplicación podrás buscar recetas de distintos autores y con distintos ingredientes.
+Además, podrás almacenar tus propias recetas y armar una colección virtual con todas ellas.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src="./src/Assets/preview.png" height="300" /> 
 
-### `npm run build`
+## 🛠 Built with
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- HTML
+- CSS
+- JavaScript
+- React.js
+- Redux Toolkit
+- Axios
+- Firebase
+- Tailwind CSS
+- Vercel
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 👀 Prerequisites
 
-### `npm run eject`
+Es necesario tener Git y Node.js instalado en tu computadora antes de instalar este proyecto.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🏃 Run Locally
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Clonar el repositorio
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+  git clone https://github.com/DaniCis/Recipes_Kruger
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Ir al directorio del proyecto
 
-## Learn More
+```bash
+  cd my-project
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Instalar todas las dependencias
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+  npm install
+```
 
-### Code Splitting
+Iniciar el servidor
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+  npm run start
+```
+Por defecto la aplicación se ejecutará en tu navegador en https://localhost:3000
 
-### Analyzing the Bundle Size
+## 🧪 Running Tests
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Para ejecutar las pruebas de la aplicación, utilizar el siguiente comando
 
-### Making a Progressive Web App
+```bash
+  npm run test
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## 📜 API Reference
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Para este proyecto se utilizó una  [API gratuita](https://developer.edamam.com/recipe-demo) para buscar recetas de cocina.
 
-### Deployment
+#### Obtener todas las recetas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```http
+  GET /api/recipes/v2
+```
 
-### `npm run build` fails to minify
+| Parámetro | Tipo     | Descripción                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Requerido**. Tu propia API key |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Obtener la información de una receta en específico
+
+```http
+  GET /api/rcipes/v2/${id}
+```
+
+| Parámetro | Tipo     | Descripción                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Requerido**. Id de la receta a obtener|
+
+Documentación completa de la API [aquí](https://developer.edamam.com/edamam-docs-recipe-api)
+
+## 🔑 Environment Variables
+
+Para correr este proyecto, es necesario añadir las siguientes variables de entorno a tu archivo .env con la información que te provea la API 
+
+`REACT_APP_KEY` 
+
+`REACT_API_ID` 
+
+`REACT_API_URL` 
+
+## Authors
+
+👤 **Daniela Cisneros**
+
+- GitHub: [@DaniCis](https://github.com/DaniCis)
+- Twitter: [@DaniCisneros99](https://twitter.com/DaniCisneros99)
+
+👤 **Kevin Veliz**
+- Github: [@KevinVeliz](https://github.com/KevinVeliz)
+- LinkedIn: [KevinVeliz](https://www.linkedin.com/in/kevin-veliz-b747a0206/)
+
+## 💎 Acknowledgements
+
+- [Sweet Alert 2](https://sweetalert2.github.io/)
+- [Recipe Search Api](https://developer.edamam.com/recipe-demo)
+- [Daisy UI](https://daisyui.com/)
+
+## 🤝 Contributing
+
+[Juan Sotomayor](https://github.com/Juanse7793) - Tutor Frontend Kruger Star
+
+## Show your support
+
+Deja una ⭐ si te ha gustado este proyecto!
