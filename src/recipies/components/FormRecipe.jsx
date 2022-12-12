@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 import { useFormik } from 'formik';
 import { v4 as uuid} from 'uuid'
 import * as Yup from 'yup';
@@ -6,6 +7,7 @@ import * as Yup from 'yup';
 const FormRecipe = ({titleForm, titleBtn, onAction}) =>{
 
     const [image,setImage] = useState('')
+    const navigate = useNavigate();
 
     const createSchema = Yup.object().shape({
 		title: Yup.string().required('Title is required'),
@@ -114,7 +116,7 @@ const FormRecipe = ({titleForm, titleBtn, onAction}) =>{
                                 <span className="label-text font-semibold">List of Ingredients</span>
                             </label>
                             <textarea name="ingredients" className="textarea textarea-bordered bg-gray-100"
-                            onChange={formik.handleChange} value={formik.values.ingredients} required />
+                            onChange={formik.handleChange} value={formik.values.ingredients} placeholder="List ingredients separeted by ','" required />
                             <label className="label">
                                 {formik.touched.ingredients && formik.errors.ingredients && (
                                     <span className="label-text-alt font-semibold text-red-500">{formik.errors.ingredients}</span>
@@ -168,8 +170,9 @@ const FormRecipe = ({titleForm, titleBtn, onAction}) =>{
                                 }
                             </div>
                         </div>
-                        <div className='flex justify-end'>
+                        <div className='flex justify-end '>
                             <button className="btn btn-success w-32 mt-6" type='submit'>{titleBtn}</button>
+                            <button className="btn btn-info w-32 mt-6 ml-2" onClick={() => navigate('/recipeBook') }>Cancel</button>
                         </div>
                     </div>
                 </div>
