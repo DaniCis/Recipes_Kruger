@@ -29,7 +29,7 @@ export default function Recipies() {
 			Swal.fire({
 				icon: "error",
 				title: "Oops...",
-				text: "No, you searched for nothing",
+				text: "You need to enter a recipe in order to search!",
 			});
 		} else {
 			const searchInput = await searchRecipes(recipeName);
@@ -40,7 +40,7 @@ export default function Recipies() {
 				Swal.fire({
 					icon: "error",
 					title: "Oops...",
-					text: "No results",
+					text: "Sorry, no results found",
 				});
 				setTimeout(()=>{
 					<Loading/>

@@ -104,7 +104,7 @@ const EditRecipe = () =>{
     return(
         <>
             <Navbar />
-            <div className="pt-8 pb-2">
+            <div className="pt-8 pb-2 h-auto mt-4 mb-16">
                 <form onSubmit={handleSubmit} className=" card bg-white border border-gray-300 shadow-lg mx-6 sm:mx-12 md:mx-24 lg:mx-42 xl:mx-60 mb-8">
                     <h3 className='md:text-2xl text-xl capitalize leading-7 font-bold text-center text-gray-700 mt-4'>Edit Recipe</h3>
                     <div className="card md:card-side ">

@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { startLoginWithEmailPassword } from "../../store/auth/thunks";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -6,7 +6,6 @@ import "../styles/Login-Register-Layout.css";
 
 export default function LoginPage() {
 	const dispatch = useDispatch();
-
 
 	const loginSchema = Yup.object().shape({
 		email: Yup.string().email("Invalid email").required("Email is required"),

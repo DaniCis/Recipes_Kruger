@@ -98,7 +98,7 @@ export default function DetailsRecipies() {
 			{ loading 
 				? <Loading />
 				:(
-					<div className="flex items-center justify-center w-full max-h-min">
+					<div className="flex items-center justify-center w-full h-auto mt-10">
 						<div className="flex flex-col w-full max-w-4xl p-10 space-y-6 text-white shadow-lg md:flex-row md:space-x-6 md:space-y-0 rounded-xl max-sm:w-auto max-sm:my-5">
 							<div className="flex flex-col  p-8 space-y-8 text-gray-600 bg-white shadow-lg rounded-xl w-8/12 max-sm:w-80">
 								<div className="my-5">
@@ -181,29 +181,22 @@ export default function DetailsRecipies() {
 										)}
 										<div className="divider"></div>
 										<div className="flex justify-end mt-5 gap-4">
-											{ hasId 
-												?(
-													<>
-													{!isSaved 
-														&&
-														<button className="btn btn-info" onClick={handleSave}>
-															Add to my recipes
-														</button>
-													}
-													<button className="btn btn-success" onClick={handleReturn}>Go Back</button>
-													</>
-												)
-												:(
-													<>
-													{isSaved 
-														&&
-														<Link to={`/editRecipe/${infos.id}`}>
-															<button className="btn btn-info">Edit Recipe</button>
-														</Link>
-													}
-													<button className="btn btn-success" onClick={()=>navigate("/recipeBook")}>Go Back</button>
-													</>
-												)
+											{!isSaved && ( <>
+												{ hasId
+													? <button className="btn btn-info" onClick={handleSave}>
+														Add to my recipes
+													</button>
+													: <Link to={`/editRecipe/${infos.id}`}>
+														<button className="btn btn-info">Edit Recipe</button>
+													</Link>
+												}
+												</>
+											)}
+											{!isSaved && hasId 
+												? <button className="btn btn-success"onClick={handleReturn}>
+													Go back
+												</button>
+												:<button className="btn btn-success" onClick={()=>navigate("/recipeBook")}>Go Back</button>
 											}
 										</div>
 									</div>
