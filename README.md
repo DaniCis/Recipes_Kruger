@@ -9,7 +9,7 @@
 
 Busca, crea y guarda todas tus recetas en un solo lugar!
 
-[View Demo](cookbook-kv-dc.netlify.app)
+[View Demo](https://cookbook-kv-dc.netlify.app)
 </div>
 
 ## 🌟 About this project
