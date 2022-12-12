@@ -50,7 +50,7 @@ const Navbar = () =>{
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="avatar placeholder">
                         <div className=" cursor-pointer bg-info text-neutral-content rounded-full w-12 ">
-                            <span className="font-semibold text-xl ">{displayName.substring(0,2)}</span>
+                            <span className="font-semibold text-xl ">{displayName?.substring(0,2)}</span>
                         </div>
                     </label> 
                     <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
