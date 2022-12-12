@@ -35,7 +35,21 @@ export default function Recipies() {
 			const searchInput = await searchRecipes(recipeName);
 			setValidationHome(false);
 			setInfoSearch(searchInput);
+			if(searchInput.length === 0) {
+				
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: "No results",
+				});
+				setTimeout(()=>{
+					<Loading/>
+					setRecipeName("")
+				},500)
+				
+			}
 		}
+
 	};
 
 	return (
@@ -60,7 +74,7 @@ export default function Recipies() {
 					</div>
 				</div>
 			</div>
-			<div>
+			<div className="min-h-screen">
 				{validationHome ? (
 					<>
 						<div className="py-8 px-2 lg:ml-5 md:flex md:justify-center ">
