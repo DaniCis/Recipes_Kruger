@@ -1,7 +1,7 @@
 import { NavLink , Link} from 'react-router-dom';
 import { startLogout } from "../../store/auth/thunks";
 import { useDispatch, useSelector } from "react-redux";
-import logo from "../../Assets/kruger-blanco.png"
+import logo from "../../Assets/kruger-logo.png"
 const Navbar = () =>{
 
     const dispatch = useDispatch();
@@ -12,7 +12,7 @@ const Navbar = () =>{
 	}
 
     return(
-        <div className="navbar bg-yellow-500">
+        <div className="navbar bg-gradient-to-r from-rose-100 to-teal-100">
             <div className="navbar-start">
                 <div className="dropdown">
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -49,8 +49,8 @@ const Navbar = () =>{
             <div className="navbar-end">
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="avatar placeholder">
-                        <div className=" cursor-pointer bg-neutral-focus text-neutral-content rounded-full w-12 ">
-                            <span className="text-xl">{displayName.substring(0,2)}</span>
+                        <div className=" cursor-pointer bg-info text-neutral-content rounded-full w-12 ">
+                            <span className="text-xl ">{displayName.substring(0,2)}</span>
                         </div>
                     </label> 
                     <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">

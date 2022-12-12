@@ -47,7 +47,7 @@ export default function RegisterPage() {
 						placeholder="Username"
 						defaultValue={formik.values.displayName}
 						onChange={formik.handleChange}
-						className= "w-96 sm:w-72 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200"
+						className= "w-96 sm:w-72 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 max-sm:w-72"
 					/>
 					<div></div>
 					{formik.touched.displayName && formik.errors.displayName && (
@@ -63,7 +63,7 @@ export default function RegisterPage() {
 						placeholder="correo@google.com"
 						defaultValue={formik.values.email}
 						onChange={formik.handleChange}
-						className= "w-96 sm:w-72 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200"
+						className= "w-96 sm:w-72 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 max-sm:w-72"
 					/>
 					<div></div>
 					{formik.touched.email && formik.errors.email && (
@@ -79,7 +79,7 @@ export default function RegisterPage() {
 						placeholder="Password"
 						defaultValue={formik.values.password}
 						onChange={formik.handleChange}
-						className= "w-96 sm:w-72 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200"
+						className= "w-96 sm:w-72 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 max-sm:w-72"
 					/>
 					<div></div>
 					{formik.touched.password && formik.errors.password && (

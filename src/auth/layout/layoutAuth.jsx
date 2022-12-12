@@ -29,8 +29,8 @@ export default function LayoutAuth() {
 						 id=""
 							className={
 								activeForm === "login"
-									? "rounded-lg shadow-md shadow-gray-400/50 bg-gradient-to-r from-rose-400 to-orange-300 text-sm font-medium  capitalize text-gray-50 py-4 px-3 mt-96 ml-24 md:ml-12 lg:-ml-28"
-									: "rounded-lg shadow-md shadow-gray-400/50 bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] from-yellow-200 via-yellow-400 to-yellow-700 text-sm w-60 font-medium capitalize text-gray-50 py-4 px-3 mt-96 ml-24 md:ml-12 lg:-ml-28 "
+									? "rounded-lg shadow-md shadow-gray-400/50 bg-gradient-to-r from-rose-400 to-orange-300 text-sm font-medium  capitalize text-gray-50 py-4 px-3 mt-96 ml-24 md:ml-12 lg:-ml-28 max-sm:ml-5"
+									: "rounded-lg shadow-md shadow-gray-400/50 bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] from-yellow-200 via-yellow-400 to-yellow-700 text-sm w-60 font-medium capitalize text-gray-50 py-4 px-3 mt-96 ml-24 md:ml-12 lg:-ml-28 max-sm:ml-5"	
 							}
 							type="button"
 							onClick={() =>

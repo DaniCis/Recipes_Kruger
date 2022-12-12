@@ -41,7 +41,7 @@ export default function LoginPage() {
 						placeholder="correo@google.com"
 						defaultValue={formik.values.email}
 						onChange={formik.handleChange}
-						className= "w-96 sm:w-72 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200"
+						className= "w-96 sm:w-72 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 max-sm:w-72"
 						
 					/>
 					<div></div>
@@ -58,7 +58,7 @@ export default function LoginPage() {
 						placeholder="Password"
 						defaultValue={formik.values.password}
 						onChange={formik.handleChange}
-						className = "w-96 sm:w-72 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200"
+						className = "w-96 sm:w-72 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 max-sm:w-72"
 						
 					/>
 					<div></div>
