@@ -67,22 +67,20 @@ const RecipeBook = () => {
 		});
 	};
 
-	console.log(myRecipes.length === 0 && savedRecipes.length === 0);
-
 	return (
 		<>
 			<Navbar />
 			<div className="">
-				<h2 className="text-xl font-bold text-center capitalize">
-					My recipe book
+				<h2 className="text-2xl my-4 text-gray-700 font-bold text-center capitalize">
+					My cook book
 				</h2>
 				<div className="flex ml-6 md:justify-end md:mr-8">
 					<button
-						className="btn btn-sm "
+						className="btn btn-sm btn-info"
 						onClick={() => {
 							navigate("/createRecipe");
 						}}>
-						Agregar nueva receta
+						Add new recipe
 					</button>
 				</div>
 				<div className="flex flex-col min-h-screen">
@@ -91,18 +89,18 @@ const RecipeBook = () => {
 							<>
 								<div className="flex justify-center">
 									<img
-										className="w-4/12 flex justify-center max-sm:w-10/12 max-sm:mt-28"
+										className="w-3/12 flex justify-center max-sm:w-10/12 max-sm:mt-28"
 										src={background}
 										alt="ops"
 									/>
 								</div>
-								<h1 className="font-bold flex justify-center text-gray-600 text-2xl">
-									Agrega una nueva receta
+								<h1 className="font-semibold flex justify-center text-gray-500 text-2xl">
+									Your cook book is empty. <br/>Start adding more recipes!
 								</h1>
 							</>
 						) : (
 							<>
-								<h4 className="text-lg my-4 ml-4 flex justify-center">Mis propias recetas</h4>
+								<h4 className="text-lg my-4 ml-4 flex justify-center">My own recipes</h4>
                                 <div className="w-11/12 mb-20 max-sm:ml-2 xl:ml-16">
 								<table className="table w-full">
 									<thead>
@@ -173,7 +171,7 @@ const RecipeBook = () => {
 							<span></span>
 						) : (
 							<>
-								<h4 className="text-lg my-4 ml-4 flex justify-center">Mis recetas guardadas</h4>
+								<h4 className="text-lg my-4 ml-4 flex justify-center">Mis saved recipes</h4>
                                 <div className="w-11/12 max-sm:ml-2 xl:ml-16">
 								<table className="table w-full">
 									<thead>

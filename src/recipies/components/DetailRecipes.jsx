@@ -181,29 +181,22 @@ export default function DetailsRecipies() {
 										)}
 										<div className="divider"></div>
 										<div className="flex justify-end mt-5 gap-4">
-											{ hasId 
-												?(
-													<>
-													{!isSaved 
-														&&
-														<button className="btn btn-info" onClick={handleSave}>
-															Add to my recipes
-														</button>
-													}
-													<button className="btn btn-success" onClick={handleReturn}>Go Back</button>
-													</>
-												)
-												:(
-													<>
-													{isSaved 
-														&&
-														<Link to={`/editRecipe/${infos.id}`}>
-															<button className="btn btn-info">Edit Recipe</button>
-														</Link>
-													}
-													<button className="btn btn-success" onClick={()=>navigate("/recipeBook")}>Go Back</button>
-													</>
-												)
+											{!isSaved && ( <>
+												{ hasId
+													? <button className="btn btn-info" onClick={handleSave}>
+														Add to my recipes
+													</button>
+													: <Link to={`/editRecipe/${infos.id}`}>
+														<button className="btn btn-info">Edit Recipe</button>
+													</Link>
+												}
+												</>
+											)}
+											{!isSaved && hasId 
+												? <button className="btn btn-success"onClick={handleReturn}>
+													Go back
+												</button>
+												:<button className="btn btn-success" onClick={()=>navigate("/recipeBook")}>Go Back</button>
 											}
 										</div>
 									</div>

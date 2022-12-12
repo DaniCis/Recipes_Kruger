@@ -26,8 +26,8 @@ const About = () => {
                                     </div>
                                     <div className="px-6 mt-16">
                                         <div className="font-bold text-3xl text-center pb-1">Kevin Veliz</div>
-                                        <p className="text-gray-800 text-sm text-center">Programador Junior</p>
-                                        <p className="text-center text-gray-600 text-base pt-3 font-normal">Programador frotend. Con varios conocimientos en lenguajes como JavaScript, C++ y Python, además de manejar uno de los frameworks más populares React.</p>
+                                        <p className="text-gray-800 text-sm text-center">Junior Developer</p>
+                                        <p className="text-center text-gray-600 text-base pt-3 font-normal">Frontend Developer. With knowledge in languages ​​such as JavaScript, C++ and Python, in addition to working with one of the most popular frameworks, React.</p>
                                         <div className="w-full flex justify-center pt-5 pb-5">
                                             <a href="https://github.com/KevinVeliz" className="mx-5">
                                                 <div>
@@ -65,8 +65,8 @@ const About = () => {
                                     </div>
                                     <div className="px-6 mt-16">
                                         <div className="font-bold text-3xl text-center pb-1">Daniela Cisneros</div>
-                                        <p className="text-gray-800 text-sm text-center">Ingeniera en Sistemas</p>
-                                        <p className="text-center text-gray-600 text-base pt-3 font-normal">The emphasis on innovation and technology in our companies has resulted in a few of them establishing global benchmarks in product design and development.</p>
+                                        <p className="text-gray-800 text-sm text-center">System Engineer</p>
+                                        <p className="text-center text-gray-600 text-base pt-3 font-normal">Passionate Frontend Developer with knowledge in different programming languages. Currently learning React.js and Ui/Ux design.</p>
                                         <div className="w-full flex justify-center pt-5 pb-5">
                                             <a href="https://github.com/DaniCis" className="mx-5">
                                                 <div>

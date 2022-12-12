@@ -169,7 +169,7 @@ const FormRecipe = ({titleForm, titleBtn, onAction}) =>{
                             </div>
                         </div>
                         <div className='flex justify-end'>
-                            <button className="btn btn-primary w-32 mt-6" type='submit'>{titleBtn}</button>
+                            <button className="btn btn-success w-32 mt-6" type='submit'>{titleBtn}</button>
                         </div>
                     </div>
                 </div>
