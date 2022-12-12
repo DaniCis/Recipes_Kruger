@@ -86,12 +86,12 @@ const RecipeBook = () => {
 					</button>
 				</div>
 				<div className="flex flex-col min-h-screen">
-					<div className="overflow-x-auto w-full">
+					<div className="overflow-x-auto w-full flex flex-col">
 						{myRecipes.length === 0 && savedRecipes.length === 0 ? (
 							<>
 								<div className="flex justify-center">
 									<img
-										className="w-4/12 flex justify-center"
+										className="w-4/12 flex justify-center max-sm:w-10/12 max-sm:mt-28"
 										src={background}
 										alt="ops"
 									/>
@@ -102,8 +102,9 @@ const RecipeBook = () => {
 							</>
 						) : (
 							<>
-								<h4 className="text-lg my-4 ml-4">Mis propias recetas</h4>
-								<table className="table w-full ">
+								<h4 className="text-lg my-4 ml-4 flex justify-center">Mis propias recetas</h4>
+                                <div className="w-11/12 mb-20 max-sm:ml-2 xl:ml-16">
+								<table className="table w-full">
 									<thead>
 										<tr>
 											<th>#</th>
@@ -163,15 +164,17 @@ const RecipeBook = () => {
 										)}
 									</tbody>
 								</table>
+                                </div>
 							</>
 						)}
 					</div>
-					<div className="overflow-x-auto w-full ">
+					<div className="overflow-x-auto w-full flex flex-col ">
 						{savedRecipes.length === 0 ? (
 							<span></span>
 						) : (
 							<>
-								<h4 className="text-lg my-4 ml-4">Mis recetas guardadas</h4>
+								<h4 className="text-lg my-4 ml-4 flex justify-center">Mis recetas guardadas</h4>
+                                <div className="w-11/12 max-sm:ml-2 xl:ml-16">
 								<table className="table w-full">
 									<thead>
 										<tr>
@@ -226,6 +229,7 @@ const RecipeBook = () => {
 										))}
 									</tbody>
 								</table>
+                                </div>
 							</>
 						)}
 					</div>
